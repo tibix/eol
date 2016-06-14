@@ -29,11 +29,11 @@
 				</form>
 			</tr>
 			<tr>
-				<th><a style="color: green;" href="<?php echo $_SERVER['PHP_SELF'] . "?sort=ASC";?>" >&#9650;</a> Part # <a style="color: red;" href="<?php echo $_SERVER['PHP_SELF'] . "?sort=DESC";?>" >&#9660;</a></th>
-				<th>&#9660 Description &#9660</th>
-				<th>&#9660 Announcement Date &#9660</th>
-				<th>&#9660 Last Day of Sale &#9660</th>
-				<th>&#9660 Replacement &#9660</th>
+				<th><a style="color: green;" href="<?php echo $_SERVER['PHP_SELF'] . "?sort=ASC.part_no";?>" >&#9650;</a> Part # <a style="color: darkorange;" href="<?php echo $_SERVER['PHP_SELF'] . "?sort=DESC.part_no";?>" >&#9660;</a></th>
+				<th><a style="color: green;" href="<?php echo $_SERVER['PHP_SELF'] . "?sort=ASC.description";?>" >&#9660;</a> Description <a style="color: darkorange;" href="<?php echo $_SERVER['PHP_SELF'] . "?sort=DESC.description";?>">&#9660;</a></th>
+				<th><a style="color: green;" href="<?php echo $_SERVER['PHP_SELF'] . "?sort=ASC.anouncement_date";?>" >&#9660; </a> Announcement Date <a style="color: darkorange;" href="<?php echo $_SERVER['PHP_SELF'] . "?sort=DESC.anouncement_date";?>">&#9660;</a></th>
+				<th><a style="color: green;" href="<?php echo $_SERVER['PHP_SELF'] . "?sort=ASC.last_day_sale";?>" >&#9660;</a> Last Day of Sale <a style="color: darkorange;" href="<?php echo $_SERVER['PHP_SELF'] . "?sort=DESC.last_day_sale";?>">&#9660;</a></th>
+				<th><a style="color: green;" href="<?php echo $_SERVER['PHP_SELF'] . "?sort=ASC.replacement";?>" >&#9660;</a> Replacement <a style="color: darkorange;" href="<?php echo $_SERVER['PHP_SELF'] . "?sort=DESC.replacement";?>">&#9660;</a></th>
 				<th></th>
 				<th></th>
 			</tr>
