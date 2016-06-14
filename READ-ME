@@ -1,0 +1,31 @@
+/*
+	PROJECT name: EOL;
+	CURRENT VERSION: 1.0;
+	AUTHOR: Dascal Tiberiu Claudiu
+			Email: tiberiu.purcel@emerson.com
+			Phone: +40 749 149 696
+	SCOPE: cross-browser platform aimed to maintain the list of EOL products and help out PMs to keep the list accurate;
+	FRONT-END Support: CSS, JavaScript, HTML5;
+	BACK-END Support: PHP 5.5.10, MySQL 5.5.34;
+	FUNCTIONALITY:
+		- Displays all items in the database following the same format as the original XLS file;
+		- Adding, removing and/or editing specific items in the database;
+		- Searching for specific or non-specific item throughout the databases (based on part_no and description columns);
+		- Pagination for normal and search view (currently shows only 30 results per page); 
+	
+	FUTURE Planed functionality:
+		- Google-like search capability with pre-suggest options;
+		- Granular add/delete/edit permissions;
+		- Batch import using CSV/XLS files;
+		- Implementation of custom results/page functionality;
+		- Advanced filtering system for granular results;
+		 
+	
+	Disclaimer: 
+		"The intent of this application is to be used only by Avocent personnel in order to keep track of "End of Life - EOL" products.
+		 It is NOT allowed for anyone but the AUTHOR to bring change to the source code presented in this project.
+		 If you wish to bring your contribution to this project, you can contact the AUTHOR using the above contact details.
+		 It is NOT allowed to copy, modify and/or redistribute this application without the written consent of the AUTHOR.
+		 The AUTHOR reserves the right to re-use the same code in other projects or as showcase but without delivering sensitive and
+		 proprietary Avocent data outside the work place."		  
+*/
