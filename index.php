@@ -81,7 +81,7 @@ if(isset($_POST['save'])){
 	}
 } else {
 
-//get total count of entried
+//get total count of entries
 $sql = mysqli_query($con, "SELECT COUNT(*) FROM `units`");
 if(!$sql){
 	echo 'Error: ',mysqli_error();
@@ -109,25 +109,15 @@ if($currentpage < 1) {
 
 $offset = ($currentpage - 1) * $rowsperpage;
 
-
-// $sql = mysqli_query($con, "SELECT * FROM units ORDER BY id DESC LIMIT $offset, $rowsperpage");
-// if(!$sql){
-	// echo 'Error: '.mysqli_error();
-// }
-
-// test sequence
 if(isset($_GET['sort']) && !(empty($_GET['sort']))){
-	// do string manipulation on $_GET value and set orderin params in SQL query
+	// get parameters from $_GET
 	$param = explode('.', $_GET['sort']);
-	echo $param[0];
-	echo $param[1];
+	// fomr the query
 	$sql = mysqli_query($con, "SELECT * FROM units ORDER BY $param[1] $param[0] LIMIT $offset, $rowsperpage");
 } else {
-	//do a normal query with limit 
+	//do a normal query with limit for pagination
 	$sql = mysqli_query($con, "SELECT * FROM units ORDER BY id DESC LIMIT $offset, $rowsperpage");
 }
-
-// echo gettype($sql);
 
 while($row = mysqli_fetch_assoc($sql)) {
     $id=$row['id'];
