@@ -30,10 +30,10 @@
 			</tr>
 			<tr>
 				<th><a style="color: green;" href="<?php echo $_SERVER['PHP_SELF'] . "?sort=ASC.part_no";?>" >&#9650;</a> Part # <a style="color: darkorange;" href="<?php echo $_SERVER['PHP_SELF'] . "?sort=DESC.part_no";?>" >&#9660;</a></th>
-				<th><a style="color: green;" href="<?php echo $_SERVER['PHP_SELF'] . "?sort=ASC.description";?>" >&#9660;</a> Description <a style="color: darkorange;" href="<?php echo $_SERVER['PHP_SELF'] . "?sort=DESC.description";?>">&#9660;</a></th>
-				<th><a style="color: green;" href="<?php echo $_SERVER['PHP_SELF'] . "?sort=ASC.anouncement_date";?>" >&#9660; </a> Announcement Date <a style="color: darkorange;" href="<?php echo $_SERVER['PHP_SELF'] . "?sort=DESC.anouncement_date";?>">&#9660;</a></th>
-				<th><a style="color: green;" href="<?php echo $_SERVER['PHP_SELF'] . "?sort=ASC.last_day_sale";?>" >&#9660;</a> Last Day of Sale <a style="color: darkorange;" href="<?php echo $_SERVER['PHP_SELF'] . "?sort=DESC.last_day_sale";?>">&#9660;</a></th>
-				<th><a style="color: green;" href="<?php echo $_SERVER['PHP_SELF'] . "?sort=ASC.replacement";?>" >&#9660;</a> Replacement <a style="color: darkorange;" href="<?php echo $_SERVER['PHP_SELF'] . "?sort=DESC.replacement";?>">&#9660;</a></th>
+				<th><a style="color: green;" href="<?php echo $_SERVER['PHP_SELF'] . "?sort=ASC.description";?>" >&#9650;</a> Description <a style="color: darkorange;" href="<?php echo $_SERVER['PHP_SELF'] . "?sort=DESC.description";?>">&#9660;</a></th>
+				<th><a style="color: green;" href="<?php echo $_SERVER['PHP_SELF'] . "?sort=ASC.anouncement_date";?>" >&#9650; </a> Announcement Date <a style="color: darkorange;" href="<?php echo $_SERVER['PHP_SELF'] . "?sort=DESC.anouncement_date";?>">&#9660;</a></th>
+				<th><a style="color: green;" href="<?php echo $_SERVER['PHP_SELF'] . "?sort=ASC.last_day_sale";?>" >&#9650;</a> Last Day of Sale <a style="color: darkorange;" href="<?php echo $_SERVER['PHP_SELF'] . "?sort=DESC.last_day_sale";?>">&#9660;</a></th>
+				<th><a style="color: green;" href="<?php echo $_SERVER['PHP_SELF'] . "?sort=ASC.replacement";?>" >&#9650;</a> Replacement <a style="color: darkorange;" href="<?php echo $_SERVER['PHP_SELF'] . "?sort=DESC.replacement";?>">&#9660;</a></th>
 				<th></th>
 				<th></th>
 			</tr>
@@ -109,14 +109,25 @@ if($currentpage < 1) {
 
 $offset = ($currentpage - 1) * $rowsperpage;
 
-if (isset($_GET['sort'])){
-	$sql = mysqli_query($con, "SELECT * FROM units ORDER BY part_no ".$_GET['sort']." LIMIT $offset, $rowsperpage");
+
+// $sql = mysqli_query($con, "SELECT * FROM units ORDER BY id DESC LIMIT $offset, $rowsperpage");
+// if(!$sql){
+	// echo 'Error: '.mysqli_error();
+// }
+
+// test sequence
+if(isset($_GET['sort']) && !(empty($_GET['sort']))){
+	// do string manipulation on $_GET value and set orderin params in SQL query
+	$param = explode('.', $_GET['sort']);
+	echo $param[0];
+	echo $param[1];
+	$sql = mysqli_query($con, "SELECT * FROM units ORDER BY $param[1] $param[0] LIMIT $offset, $rowsperpage");
 } else {
+	//do a normal query with limit 
 	$sql = mysqli_query($con, "SELECT * FROM units ORDER BY id DESC LIMIT $offset, $rowsperpage");
-	if(!$sql){
-		echo 'Error: '.mysqli_error();
-	}
 }
+
+// echo gettype($sql);
 
 while($row = mysqli_fetch_assoc($sql)) {
     $id=$row['id'];
