@@ -9,7 +9,7 @@
 <body>
 <?php
 	//mysql connection
-	include('con.php');
+	include('conn.php');
 
 	if(!isset($_GET['id'])){
 		

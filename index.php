@@ -41,7 +41,7 @@
 		<tbody>	
 <?php
 
-include('con.php');
+include('conn.php');
 
 if(isset($_POST['save'])){
 	if(isset($_POST['part_no']) && isset($_POST['description']) && isset($_POST['anouncement']) && isset($_POST['last_day_sale']) && isset($_POST['replacement'])){

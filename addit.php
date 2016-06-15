@@ -9,7 +9,7 @@
 <body>
 
 <?php
-include('con.php');
+include('conn.php');
 
 if(isset($_POST['p_no']) && isset($_POST['p_anounce'])){
 	if(!empty($_POST['p_no']) && !empty($_POST['p_anounce'])){

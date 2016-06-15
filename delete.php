@@ -19,7 +19,7 @@
 	}
 	
 	//check db if id exists
-	include('con.php');
+	include('conn.php');
 	$q = mysqli_query($con, "SELECT COUNT(*) FROM units WHERE id='".$id."'");
 	while($rez=mysqli_fetch_array($q)){
 		$result = $rez[0];
